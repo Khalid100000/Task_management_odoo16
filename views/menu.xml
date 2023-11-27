@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+  <menuitem id="task_management_root_menu"
+    name="Task Management"
+    web_icon="task,static/description/icon.png"
+    sequence='0'
+    />
+
+
+
+
+
+    <record id="action_tasks" model="ir.actions.act_window">
+      <field name="name">Tasks</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">task.management.task</field>
+      <field name="view_mode">tree,form,calendar</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          Create your First Task!
+        </p>
+      </field>
+    </record>
+
+    <record id="action_task_stage"
+      model="ir.actions.act_window">
+      <field name="name">Stages</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">task.management.stages</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+    <menuitem id="task_menu"
+      name='Tasks'
+      parent="task_management_root_menu"
+      action='action_tasks'
+      sequence='1'
+      />
+    <menuitem id="configuration_menu"
+        name = 'Configuration'
+        parent = "task_management_root_menu"
+        sequence='2'
+    />
+    <menuitem id="menu_tasks_stage"
+          name="Stages"
+          action="action_task_stage"
+          parent="configuration_menu"
+    />
+
+</odoo>

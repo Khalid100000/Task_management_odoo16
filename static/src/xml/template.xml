@@ -1,0 +1,78 @@
+<odoo>
+    <template id='index'>
+        <t t-call='website.layout'>
+            <t t-set='title'>Tasks</t>
+            <div class='oe_structure'/>
+            <div class='oe_structure'>
+                <div class='container'>
+                    <t t-foreach='tasks' t-as='task'>
+                        <li>    
+                            <p>
+                                <a t-attf-href="/task/{{ slug(task)}}"> <t t-esc='task.name'/></a>
+                                    <!-- <h3 t-field='task.name'/>
+                                    <div t-field='task.description'/>
+                                    <div t-field="task.date_deadline" t-options="{'widget': 'date'}" />
+                                    <div t-field='task.stage_id'/>
+                                    <div t-field='task.creator'/> -->
+                            </p>
+                        </li>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id='task_detail'>
+        <t t-call='website.layout'>
+            <title>Task</title>
+            <div class='oe_structure'/>
+            <div class='oe_structure'>
+                <div class='container'>
+                    <h3><t t-esc='task.name'/></h3>
+                        <p t-field='task.description'/>
+                        <div t-field="task.date_deadline" t-options="{'widget': 'date'}" />
+                        <div t-field='task.stage_id'/>
+                        <div t-field='task.creator'/>
+
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+    <template id='ip_details'>
+        <t t-call='website.layout'>
+            <title>IP</title>
+            <div class='oe_structure'/>
+            <div class='oe_structure'>
+                <div class='container'>
+                <h3><t t-esc='real_ip'/></h3>
+
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+    <template id='main'>
+        <t t-call='website.layout'>
+            <title>IP</title>
+            <div class='oe_structure'/>
+            <div class='oe_structure'>
+                <div class='container'>
+                <t t-foreach='output' t-as='O'>
+                        <li>    
+                            <p>
+                                <h3><t t-esc='O'/></h3>
+                            </p>
+                        </li>
+                    </t>
+
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+
+</odoo>

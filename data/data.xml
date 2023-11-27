@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="sec_task" model="ir.sequence">
+            <field name="name">Tasks Sequence</field>
+            <field name="code">task.management.task</field>
+            <field name="prefix">t</field>
+            <field name="padding">3</field> <!-- total digits in the sec -->
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+
+</odoo>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- This is the paper format for the report -->
+    <record id="paperformat_euro_landscape" model="report.paperformat">
+        <field name="name">A4 Landscape</field>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">32</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+        <!-- <report
+            id="report_task_card"
+            string="Task Details"
+            model="task.management.task"
+            report_type="qweb-pdf"
+            file="task_management.report_task_card"
+            name="task_management.report_task_card"
+            menu="False"
+        /> -->
+    <record id='task_card_report' model='ir.actions.report'>
+        <field name='name'>Task Card</field>
+        <field name='model'>task.management.task</field>
+        <field name='report_type'>qweb-pdf</field>
+        <field name='report_name'>task_management.report_task_card</field>
+        <field name='report_file'>task_management.report_task_card</field>
+        <field name="paperformat_id" ref="paperformat_euro_landscape" />
+        <field name='binding_model_id' ref='model_task_management_task'/>
+        <field name='binding_type'>report</field>
+    </record>
+
+    <template id="report_task_card">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                <!-- Report header content -->
+                    <div class="container">
+                        <div class="row bg-primary">
+                            <div class="col-2">Name</div>
+                            <div class='col-1'>Stage</div>
+                            <div class="col-2">Creator</div>
+                            <div class="col-2">Deadline</div>
+                            <div class="col-5">Description</div>
+                        </div>
+                        <t t-foreach="docs" t-as="o">
+                        <!-- Report row content -->
+                            <div class="row">
+                                <div class="col-2">
+                                    <h4><span t-field="o.name" /></h4>
+                                </div>
+                                <div class="col-1">
+                                    <h4><span t-field="o.stage_id" /></h4>
+                                </div>
+                                <div class="col-2">
+                                    <ul class="list-unstyled">
+                                        <t t-foreach="o.creator" t-as="author">
+                                            <span t-field="author.image_128"
+                                            t-options="{'widget': 'image',
+                                            'style': 'max-width: 32px'}" />
+                                            <span t-field="author.name" />
+                                        </t>
+                                    </ul>
+                                </div>
+                                <div class="col-2">
+                                    <span t-field="o.date_deadline" t-options="{'widget': 'date'}" />
+                                </div>
+                                <div class="col-5">
+                                    <span t-field="o.description" />
+                                </div>
+                            </div> <!-- row -->
+                        </t>
+                        <!-- Report footer content -->
+                        <div class="row">
+                            <div class="col-3">
+                                <t t-out="len(docs)" /> Tasks
+                            </div>
+                        </div>
+                    </div> <!-- container -->
+                </div> <!-- page -->
+            </t>
+        </t>
+    </template>
+</odoo>
