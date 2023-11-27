@@ -1,11 +1,11 @@
 <h1>Task Management Module</h1>
 
-<p>This Odoo module, named "task_management", provides functionality for managing tasks with deadlines, collects visitor ip adresses and their locations and views them in the main website page. It introduces a new model called "Task" with various fields for capturing task details. Additionally, there is a "Stages" model that allows categorizing tasks into different stages. The module includes three views: form, list, and calendar, providing different ways to interact with the tasks.</p>
+<p>This Odoo module, named "task_management", provides functionality for managing tasks with deadlines, collects visitor ip adresses and their locations. It introduces a new model called "Task" with various fields for capturing task details. Additionally, there is a "Stages" model that allows categorizing tasks into different stages. The module includes three views: form, list, and calendar, providing different ways to interact with the tasks.</p>
 
 <h2>Features</h2>
 
 <ul>
-  <li><strong>IP Address Collection:</strong>The ip address of the device you log with into the odoo webiste will be collected and shown with its information regarding: Country, City, Provider, Timezone, etc..</li>
+  <li><strong>IP Address Collection:</strong> The ip address of the device you log with into the odoo webiste will be collected and saved to visitors and track models in website module, other Info regarding the ip are also collected like: Country, City, region, hostname.</li>
   <li><strong>Task Model:</strong> The main model of the module is "Task," which includes the following fields:
     <ul>
       <li>Name: The name of the task.</li>
@@ -39,7 +39,7 @@
 
 <ol>
   <li>open the local host or the server website </li>
-  <li>the ip adress with the details regarding the locationn will be present</li>
+  <li>the ip adress with the details regarding the locationn will be present in visitors tab in website module</li>
   <li>Log in to the Odoo system with appropriate access rights.</li>
   <li>Navigate to the "Task Management" menu to access the tasks.</li>
   <li>Create new tasks, providing the necessary details such as name, description, deadline, and stage.</li>

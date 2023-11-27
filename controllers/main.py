@@ -13,7 +13,7 @@ class MyPage(http.Controller):
             'task_management.index',{'tasks':task}
         )
     
-    @http.route('/',auth='public',website=True)
+    @http.route('/ip',auth='public',website=True)
     def main(self,**kwargs):
         forwarded_for = request.httprequest.headers.get('X-Forwarded-For')
         print(f'forwarded_for: {forwarded_for}')

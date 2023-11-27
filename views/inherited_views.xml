@@ -1,0 +1,64 @@
+<odoo>
+    <record id="website_visitor_form_inherit" model="ir.ui.view">
+        <field name="name">website.visitor.form.inherit</field>
+        <field name="model">website.visitor</field>
+        <field name="inherit_id" ref="website.website_visitor_view_form"/>
+        <field name="arch" type="xml">
+                <xpath expr="//group[@id='visits']" position="inside">
+                    <field name="ip_address"/>
+                    <field name="ip_address_country"/>
+                </xpath>
+
+                <xpath expr="//group[@id='general_info']" position="inside">
+                    <group id='ip_info' string='Last IP Information'>            
+                        <field name="ip_address" string='IP ADDRESS'/>
+                        <field name="ip_address_country" string='COUNTRY'/>
+                        <field name="ip_address_region" string='REGION'/>
+                        <field name="ip_address_city" string='CITY'/>
+                        <field name="ip_address_hostname" string='HOSTNAME'/>
+                    </group>
+                </xpath>
+        </field>
+    </record>
+    <record id="website_visitor_kanban_inherit" model="ir.ui.view">
+        <field name="name">website.visitor.kanban.inherit</field>
+        <field name="model">website.visitor</field>
+        <field name="inherit_id" ref="website.website_visitor_view_kanban"/>
+        <field name="arch" type="xml">
+                <xpath expr='//templates/t/div/div' position='inside'>
+                    
+                    <div class="col-lg col-sm-4 col-6 py-0 my-2">
+                        <b><field name="ip_address"/></b>
+                        <div> </div>
+                        <b><field name="ip_address_country"/></b>
+                        <div>IP Address</div>
+                    </div>
+                </xpath>                              
+        </field>
+    </record>
+
+    <record id="website_visitor_page_view_tree_inherit" model="ir.ui.view">
+        <field name="name">website.track.tree.inherit</field>
+        <field name="model">website.track</field>
+        <field name="inherit_id" ref="website.website_visitor_page_view_tree"/>
+        <field name="arch" type="xml">
+                <xpath expr="//field[@name='visitor_id']" position="after">
+                    <field name="ip_address"/>
+                    <field name="ip_address_country"/>
+
+                </xpath>                              
+        </field>
+    </record>
+    <record id="website_track_tree_inherit" model="ir.ui.view">
+        <field name="name">website.track.tree.inherit</field>
+        <field name="model">website.track</field>
+        <field name="inherit_id" ref="website.website_visitor_track_view_tree"/>
+        <field name="arch" type="xml">
+                <xpath expr="//field[@name='visitor_id']" position="after">
+                    <field name="ip_address"/>
+                    <field name="ip_address_country"/>
+
+                </xpath>                              
+        </field>
+    </record>
+</odoo>

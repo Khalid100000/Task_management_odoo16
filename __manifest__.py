@@ -33,6 +33,7 @@
         'views/menu.xml',
         'views/task_views.xml',
         'views/website_menus.xml',
+        'views/inherited_views.xml',
         'report/report.xml',
         'static/src/xml/template.xml',
 
